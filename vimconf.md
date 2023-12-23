@@ -1,6 +1,6 @@
 ---
 title: 트리시터를 활용해서 나만의 플러그인 만들기
-sub_title: VimEnter2023 발표
+sub_title: classy.nvim 제작 후기
 author: 차주훈
 theme:
   name: vimconf
@@ -46,7 +46,7 @@ theme:
 
 ## 트리시터(Tree-sitter)란?
 
-많이는 들어봤는데... 트리시터란 뭘까?
+많이 들어봤는데... 트리시터가 뭐지?
 
 ![what_ts](./media/what_ts.png)
 
@@ -121,11 +121,41 @@ that were once only possible in language-specific IDEs.
 
 ## 트리시터 활용 플러그인
 
+### tailwind-sorter.nvim
+
+![tailwind_sorter](./media/tailwind_sorter.png)
+
+언어 별로 쿼리를 작성, `Tailwind` 클래스 속성 값을 찾아 정렬
+
+정렬 알고리즘을 바꾸면 마음대로 커스텀할 수 있다
+
 [laytan/tailwind-sorter.nvim](https://github.com/laytan/tailwind-sorter.nvim)
+
+<!-- end_slide -->
+
+### tree-setter
+
+#### Typescript
+
+![ts_ts_demo](./media/ts_ts_demo.gif)
+
+`=`, `;` 자동 입력기
+
+<!-- end_slide -->
+
+#### Java
+
+![ts_java_demo](./media/ts_java_demo.gif)
 
 [filNaj/tree-setter](https://github.com/filNaj/tree-setter)
 
-[Dkendal/nvim-treeclimber](https://github.com/Dkendal/nvim-treeclimber)
+<!-- end_slide -->
+
+### 나만의 생산성 핵
+
+자신이 애용하는 언어에 맞는 쿼리를 작성하고 이것저것 시도해보자
+
+생산성 핵을 제조할 수 있을지도 모른다...
 
 <!-- end_slide -->
 
