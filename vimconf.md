@@ -65,7 +65,8 @@ that were once only possible in language-specific IDEs.
 `Tree-sitter`는 오픈소스 구문 분석 프레임워크로서
 
 1. 작성 중인 파일의 수정 사항을 점진적으로 반영하고 구문을 분석
-2. 에디터 종류에 구애 받지 않고 동일한 문법으로 언어를 분석하고 그에 맞는 기능을 제공할 수 있다는 장점을 가짐
+2. 에디터 종류에 구애 받지 않고 동일한 문법으로 언어를 분석하고
+   그에 맞는 기능을 제공할 수 있다는 장점을 가짐
 
 <!-- end_slide -->
 
@@ -100,6 +101,8 @@ that were once only possible in language-specific IDEs.
 - Neovim 0.5 버전부터 공식 지원
 - 규칙적인 구문 하이라이팅과 빠른 코드 분석
   - 이전 방식은 특히 jsx/tsx를 사용하는 모던 웹 개발 환경에서 큰 불편을 초래
+
+<!-- end_slide -->
 
 #### LSP와의 차이점?
 
@@ -255,14 +258,16 @@ that were once only possible in language-specific IDEs.
 
 ```
 ((property_identifier) @attr_name
-  (#eq? @attr_name "class") [(jsx_expression (_)?) (string)] @attr_value)
+  (#eq? @attr_name "class") [(jsx_expression (_)?)
+    (string)] @attr_value)
 ```
 
 #### `HTML`
 
 ```
 ((attribute_name) @attr_name
-  (#eq? @attr_name "class") (quoted_attribute_value) @attr_value)
+  (#eq? @attr_name "class") (quoted_attribute_value)
+    @attr_value)
 ```
 
 <!-- end_slide -->
@@ -277,8 +282,9 @@ that were once only possible in language-specific IDEs.
 
 추가로 `HTML`과는 다르게 `JSX`에서는 _self-closing_ 태그가 빈번히 쓰인다
 
-> 이걸 고려해서 감지된 언어가 `javascriptReact` 또는 `typescriptReact` 일 땐 `className`을 넣어준다
-> 또 self-closing 태그를 위한 쿼리를 하나 더 써준다
+> 이걸 고려해서 감지된 언어가 `javascriptReact`
+> 또는 `typescriptReact` 일 땐 `className`을 넣어준다
+> 추가로 self-closing 태그를 위한 쿼리를 하나 더 써준다
 
 <!-- end_slide -->
 
@@ -287,17 +293,21 @@ that were once only possible in language-specific IDEs.
 ```lua
 -- for ordinary tags
 local class = util.is_jsx(lang) and "className" or "class"
-local query = [[((property_identifier) @attr_name (#eq? @attr_name ]]
-                .. class ..
-                [[) [(jsx_expression (_)?) (string)] @attr_value)]]
+local query = [[((property_identifier)
+                  @attr_name (#eq? @attr_name ]]
+                  .. class ..
+                  [[) [(jsx_expression (_)?) (string)]
+                   @attr_value)]]
 ```
 
 ```lua
 -- handling self-closing tags
-local query = [[([( jsx_self_closing_element ) ( jsx_opening_element ) ] @open )]]
+local query = [[([( jsx_self_closing_element )
+                   ( jsx_opening_element ) ] @open )]]
 ```
 
-이렇게 쿼리를 작성해주었더니 커서가 닫는 커서에 있더라도 정확한 위치를 찾아간다
+자세한 쿼리 작성 방법은 블로그에도 있습니다:
+[https://jhcha.app/blog/ko/the-power-of-treesitter/]
 
 <!-- end_slide -->
 
@@ -343,6 +353,7 @@ local query = [[([( jsx_self_closing_element ) ( jsx_opening_element ) ] @open )
 
 - X [X](https://twitter.com/jcha0713)
 - discord **jcha0713**
+- github: [github](https://github.com/jcha0713)
 
 <!-- end_slide -->
 
